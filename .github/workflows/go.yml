@@ -20,7 +20,4 @@ jobs:
 
     - name: Build
       run: go build ./...
-      working-directory: server
-
-    - name: Test
-      run: go test -v ./...
+      
