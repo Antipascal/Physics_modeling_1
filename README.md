@@ -1,4 +1,4 @@
-# Решение задания по моделированию [![Go](https://github.com/Antipascal/physics-modeling-1/actions/workflows/go.yml/badge.svg?event=push)](https://github.com/Antipascal/physics-modeling-1/actions/workflows/go.yml)
+# Решение задания по моделированию [![Go](https://github.com/Antipascal/physics-modeling-1/actions/workflows/go.yml/badge.svg?branch=master&event=push)](https://github.com/Antipascal/physics-modeling-1/actions/workflows/go.yml)
 Решение задания по моделированию
 Для запуска сервера достаточно в директории сервер выполнить команду:
 
