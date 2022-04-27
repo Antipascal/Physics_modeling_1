@@ -3,11 +3,8 @@ package main
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
-	"os"
-	"os/exec"
-	"strconv"
-	"strings"
+
+	"github.com/Knetic/govaluate"
 )
 
 //For API
@@ -31,14 +28,14 @@ func (rb *ResponseBody) init() {
 }
 
 // For calculations
-type PyFunc struct {
+type Func struct {
 	cordinates map[float64]float64
 	function   string
 	name       string
 }
 
 // Creates function 'name' from 'function'
-func (f *PyFunc) init(name, function string) {
+func (f *Func) init(name, function string) {
 	f.name = name
 	f.function = function
 	f.cordinates = make(map[float64]float64)
@@ -46,22 +43,20 @@ func (f *PyFunc) init(name, function string) {
 
 // Count value of function in point t
 // and stores it in map
-func (f *PyFunc) newVal(t float64) (float64, error) {
-	file, err := os.Create(f.name + ".py")
+func (f *Func) newVal(t float64) (float64, error) {
+	expression, err := govaluate.NewEvaluableExpression(f.function)
 	if err != nil {
-		return 0, errors.New("can't open file")
+		return 0, errors.New(err.Error())
 	}
 
-	file.WriteString("import math\nt=" + fmt.Sprintf("%f", t) + "\ne=math.e\nprint(" + f.function + ")")
-	file.Close()
-	cmd, err := exec.Command("python3", f.name+".py").Output()
+	parameters := make(map[string]interface{}, 8)
+	parameters["t"] = t
+
+	result, err := expression.Evaluate(parameters)
 	if err != nil {
-		return 0, errors.New("can't execute calculation")
+		return 0, errors.New(err.Error())
 	}
 
-	f.cordinates[t], err = strconv.ParseFloat(strings.Trim(string(cmd), "\n"), 64)
-	if err != nil {
-		return 0, errors.New("undefined result (wrong function)")
-	}
+	f.cordinates[t] = result.(float64)
 	return f.cordinates[t], nil
 }

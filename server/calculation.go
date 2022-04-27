@@ -16,7 +16,7 @@ func toJsonNumber(f float64) json.Number {
 // Main calculation function
 func calculate(rb *RequestBody) (ResponseBody, error) {
 	// Creating two functions
-	var fFunc, uFunc PyFunc
+	var fFunc, uFunc Func
 	fFunc.init("f", rb.F)
 	uFunc.init("u", rb.U)
 
