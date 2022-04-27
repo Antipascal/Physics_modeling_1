@@ -19,7 +19,7 @@ type ResponseBody struct {
 }
 
 func main() {
-	f, _ := os.Create("gin.log")
+	f, _ := os.OpenFile("gin.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 
 	r := gin.Default()
