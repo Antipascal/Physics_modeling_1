@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"math"
 
 	"github.com/Knetic/govaluate"
 )
@@ -51,6 +52,7 @@ func (f *Func) newVal(t float64) (float64, error) {
 
 	parameters := make(map[string]interface{}, 8)
 	parameters["t"] = t
+	parameters["e"] = math.E
 
 	result, err := expression.Evaluate(parameters)
 	if err != nil {
