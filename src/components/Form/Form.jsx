@@ -1,12 +1,34 @@
 import React, { useState } from 'react';
 
 const Form = () => {
+    const url = "http://localhost:8080/calculate";
     const [rocketMass, setRocketMass] = useState('');
     const [fuelMass, setFuelMass] = useState('');
     const [uFunction, setUFunction] = useState('');
     const [fFunction, setFFunction] = useState('');
+    const postData = async () => {
+        const res = await fetch(url, { 
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+            },
+            body: JSON.stringify({
+                rocketMass: rocketMass,
+                fuelMass: fuelMass,
+                uFunction: uFunction,
+                fFunction: fFunction
+            })
+        })
+        const content = await res.json();
+        console.log(content);
+    }
     const handleSubmit = e => {
         e.preventDefault();
+        postData();
     }
     return (
         <form className="form" onSubmit={handleSubmit}>
