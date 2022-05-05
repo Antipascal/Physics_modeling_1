@@ -1,11 +1,13 @@
 import React from 'react';
+import Chart from '../../components/Chart/Chart';
 import Form from '../../components/Form/Form';
 
-const Home = () => {
+const Home = ({ data, handleChangeData }) => {
     return (
         <div>
             <div className="top-bar"></div>
-            <Form />
+            <Form handleChangeData={handleChangeData}/>
+            <Chart data={data}/>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const Form = ({ handleChangeData }) => {
     const url = "http://localhost:8080/calculate";
     const [rocketMass, setRocketMass] = useState('');
     const [fuelMass, setFuelMass] = useState('');
@@ -14,6 +14,8 @@ const Form = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
+                "Access-Control-Allow-Credentials": "true",
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
             },
             body: JSON.stringify({
@@ -24,9 +26,9 @@ const Form = () => {
             })
         })
         const content = await res.json();
-        console.log(content);
+        handleChangeData(content);
     }
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         postData();
     }
