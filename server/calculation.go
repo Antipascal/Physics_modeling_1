@@ -26,8 +26,14 @@ func calculate(rb *RequestBody) (ResponseBody, error) {
 	}
 
 	var t, v, s float64
-	m_f := rb.M_f
-	m_r := rb.M_r
+	m_f, err := strconv.ParseFloat(rb.M_f, 64)
+	if err != nil {
+		return ResponseBody{}, errors.New("can't parse constants: " + err.Error())
+	}
+	m_r, err := strconv.ParseFloat(rb.M_r, 64)
+	if err != nil {
+		return ResponseBody{}, errors.New("can't parse constants: " + err.Error())
+	}
 
 	var result ResponseBody
 	result.init()

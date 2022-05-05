@@ -3,22 +3,23 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"math"
 
 	"github.com/Knetic/govaluate"
 )
 
 //For API
 type RequestBody struct {
-	M_r float64 `json:"rocket_mass"`
-	M_f float64 `json:"fuel_mass"`
-	U   string  `json:"u_function"`
-	F   string  `json:"f_function"`
+	M_r string `json:"rocketMass"`
+	M_f string `json:"fuelMass"`
+	U   string  `json:"uFunction"`
+	F   string  `json:"fFunction"`
 }
 
 type ResponseBody struct {
-	V map[json.Number]json.Number `json:"v_plot"`
-	S map[json.Number]json.Number `json:"s_plot"`
-	A map[json.Number]json.Number `json:"a_plot"`
+	V map[json.Number]json.Number `json:"vPlot"`
+	S map[json.Number]json.Number `json:"sPlot"`
+	A map[json.Number]json.Number `json:"aPlot"`
 }
 
 func (rb *ResponseBody) init() {
@@ -51,6 +52,7 @@ func (f *Func) newVal(t float64) (float64, error) {
 
 	parameters := make(map[string]interface{}, 8)
 	parameters["t"] = t
+	parameters["e"] = math.E
 
 	result, err := expression.Evaluate(parameters)
 	if err != nil {
