@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Home from './pages/Home/Home';
 
+import './styles/styles.css';
+
 const App = () => {
     const [data, setData] = useState({
         rocketMass: '',
