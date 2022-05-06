@@ -46,9 +46,9 @@ const LineChart = ({ data }) => {
               // y-axis data plotting values
               data: aPlot[1],
               fill: false,
-              borderWidth: 4,
-              backgroundColor: "rgb(255, 99, 132)",
-              borderColor: 'green',
+              borderWidth: 2,
+              backgroundColor: "#f8b500",
+              borderColor: '#000',
               responsive: true
             },
           ],
@@ -64,9 +64,9 @@ const LineChart = ({ data }) => {
               // y-axis data plotting values
               data: sPlot[1],
               fill: false,
-              borderWidth: 4,
-              backgroundColor: "rgb(255, 99, 132)",
-              borderColor: 'green',
+              borderWidth: 2,
+              backgroundColor: "#f8b500",
+              borderColor: '#000',
               responsive: true
             },
           ],
@@ -82,9 +82,9 @@ const LineChart = ({ data }) => {
               // y-axis data plotting values
               data: vPlot[1],
               fill: false,
-              borderWidth: 4,
-              backgroundColor: "rgb(255, 99, 132)",
-              borderColor: 'green',
+              borderWidth: 2,
+              backgroundColor: "#f8b500",
+              borderColor: '#000',
               responsive: true
             },
           ],

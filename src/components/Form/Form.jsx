@@ -34,23 +34,25 @@ const Form = ({ handleChangeData }) => {
     }
     return (
         <form className="form" onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="rocket-mass"></label>
-                <input type="text" id="rocket-mass" className="form__input" value={rocketMass} onChange={(e) => setRocketMass(e.target.value)}/>
+            <div className="form__rows">
+                <div className="form__row">
+                    <label htmlFor="rocket-mass"></label>
+                    <input type="text" id="rocket-mass" className="form__input" placeholder="100" value={rocketMass} onChange={(e) => setRocketMass(e.target.value)}/>
+                </div>
+                <div className="form__row">
+                    <label htmlFor="fuel-mass"></label>
+                    <input type="text" id="fuel-mass" className="form__input" placeholder="100" value={fuelMass} onChange={(e) => setFuelMass(e.target.value)} />
+                </div>
+                <div className="form__row">
+                    <label htmlFor="u-func"></label>
+                    <input type="text" id="u-func" className="form__input" placeholder="2 * t" value={uFunction} onChange={(e) => setUFunction(e.target.value)} />
+                </div>
+                <div className="form__row">
+                    <label htmlFor="f-func"></label>
+                    <input type="text" id="f-func" className="form__input" placeholder="2 * t" value={fFunction} onChange={(e) => setFFunction(e.target.value)} />
+                </div>
+                <button className="form__button" type="submit">Submit</button>
             </div>
-            <div>
-                <label htmlFor="fuel-mass"></label>
-                <input type="text" id="fuel-mass" className="form__input" value={fuelMass} onChange={(e) => setFuelMass(e.target.value)} />
-            </div>
-            <div>
-                <label htmlFor="u-func"></label>
-                <input type="text" id="u-func" className="form__input" value={uFunction} onChange={(e) => setUFunction(e.target.value)} />
-            </div>
-            <div>
-                <label htmlFor="f-func"></label>
-                <input type="text" id="f-func" className="form__input" value={fFunction} onChange={(e) => setFFunction(e.target.value)} />
-            </div>
-            <button type="submit">Submit</button>
         </form>
     );
 }

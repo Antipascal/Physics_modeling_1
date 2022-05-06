@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&family=Pacifico&family=Quicksand:wght@300&family=Raleway:wght@700&family=Roboto&display=swap');
+
+html, body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.header {
+    padding: 2rem 0;
+    border-bottom: 2px solid #000;
+}
+
+.header__title {
+    font-family: "Pacifico", sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+.container {
+    background: #fceabb;
+    background: -webkit-linear-gradient(to right, #f8b500, #fceabb);
+    background: linear-gradient(to right, #f8b500, #fceabb);
+    padding: 20px 0 0 0;
+}
+
+.form {
+    width: 40%;
+    height: auto;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 15px;
+    margin: 40px auto;
+    padding: 10px;
+}
+
+.form__rows {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.form__input {
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+    width: 100%;
+    margin: 20px 0;
+    border: none;
+    border-bottom: 2px solid rgb(40, 120, 185);
+}
+
+.chart {
+    background: #fff;
+    padding: 20px;
+}
+
+.form__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 15px;
+    border: 0.5px solid #000;
+    border-radius: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "Quicksand", sans-serif;
+    background:#000;
+    transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.form__button:hover {
+    background: #f8b500;
+}
+
+.form__button::before, .form__button::after {
+    content: '';
+    position: absolute;
+    background: #000;
+}
