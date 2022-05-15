@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
-const Form = ({ handleChangeData }) => {
+const Form = ({ handleChangeData, handleIsLoading }) => {
     const url = "http://localhost:8080/calculate";
     const [rocketMass, setRocketMass] = useState('');
     const [fuelMass, setFuelMass] = useState('');
     const [uFunction, setUFunction] = useState('');
     const [fFunction, setFFunction] = useState('');
     const postData = async () => {
-        const res = await fetch(url, { 
+        handleIsLoading();
+        const response = await fetch(url, { 
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -25,8 +26,11 @@ const Form = ({ handleChangeData }) => {
                 fFunction: fFunction
             })
         })
-        const content = await res.json();
-        handleChangeData(content);
+        const data = await response;
+        if (data.status === 200) {
+            handleChangeData(data.json());
+            handleIsLoading();
+        }
     }
     const handleSubmit = (e) => {
         e.preventDefault();
