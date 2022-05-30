@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&family=Pacifico&family=Quicksand:wght@300&family=Raleway:wght@700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@600&family=Pacifico&family=Quicksand:wght@300;600&family=Raleway:wght@700&family=Roboto&display=swap');
 
 html, body {
     box-sizing: border-box;
@@ -19,8 +19,8 @@ html, body {
 
 .container {
     background: #fceabb;
-    background: -webkit-linear-gradient(to right, #f8b500, #fceabb);
-    background: linear-gradient(to right, #f8b500, #fceabb);
+    background: -webkit-linear-gradient(to right, #3a00f8, #4e3cb4, #9453d1, #9954ee);
+    background: linear-gradient(to right, #3a00f8, #4e3cb4, #9453d1, #9954ee);
     padding: 20px 0 0 0;
 }
 
@@ -39,6 +39,13 @@ html, body {
     margin: 0 auto;
 }
 
+.form__title {
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0.6rem 0;
+}
+
 .form__input {
     font-family: "Quicksand", sans-serif;
     font-size: 20px;
@@ -51,6 +58,30 @@ html, body {
 .chart {
     background: #fff;
     padding: 20px;
+}
+
+.chart__wrapper {
+    margin-bottom: 700px;
+    height: 200px;
+}
+
+.chart__axis-title {
+    color: #000;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.chart__line-chart {
+    height: inherit;
+}
+
+.y_axis {
+    margin-left: 1rem;
+}
+
+.x_axis {
+    text-align: right;
 }
 
 .form__button {
@@ -66,11 +97,10 @@ html, body {
     text-transform: uppercase;
     font-family: "Quicksand", sans-serif;
     background:#000;
-    transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .form__button:hover {
-    background: #f8b500;
+    background: linear-gradient(to right, #3a00f8, #4e3cb4, #9453d1, #9954ee);
 }
 
 .form__button::before, .form__button::after {
