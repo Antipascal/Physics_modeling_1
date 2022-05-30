@@ -37,7 +37,7 @@ const LineChart = ({ data }) => {
   return (
     <div className="chart">
       <div className="chart__wrapper">
-        <div className="chart__axis-title y_axis">V</div>
+        <div className="chart__axis-title y_axis">a</div>
         <Line
           className="chart__line-chart"
           data={{
@@ -61,7 +61,7 @@ const LineChart = ({ data }) => {
         <div className="chart__axis-title x_axis">t</div>
       </div>
       <div className="chart__wrapper">
-        <div className="chart__axis-title y_axis">V</div>
+        <div className="chart__axis-title y_axis">S</div>
         <Line
           className="chart__line-chart"
           data={{
