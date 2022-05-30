@@ -36,60 +36,76 @@ const LineChart = ({ data }) => {
   vPlot = convertToArray(vPlot);
   return (
     <div className="chart">
-      <Line
-        data={{
-        // x-axis label values
-        labels: aPlot[0],
-        datasets: [
-          {
-              label: "",
-              // y-axis data plotting values
-              data: aPlot[1],
-              fill: false,
-              borderWidth: 2,
-              backgroundColor: "#f8b500",
-              borderColor: '#000',
-              responsive: true
-            },
-          ],
-        }}
-      />  
-      <Line
-        data={{
-        // x-axis label values
-        labels: sPlot[0],
-        datasets: [
-          {
-              label: "",
-              // y-axis data plotting values
-              data: sPlot[1],
-              fill: false,
-              borderWidth: 2,
-              backgroundColor: "#f8b500",
-              borderColor: '#000',
-              responsive: true
-            },
-          ],
-        }}
-      />  
-      <Line
-        data={{
-        // x-axis label values
-        labels: vPlot[0],
-        datasets: [
-          {
-              label: "",
-              // y-axis data plotting values
-              data: vPlot[1],
-              fill: false,
-              borderWidth: 2,
-              backgroundColor: "#f8b500",
-              borderColor: '#000',
-              responsive: true
-            },
-          ],
-        }}
-      />  
+      <div className="chart__wrapper">
+        <div className="chart__axis-title y_axis">V</div>
+        <Line
+          className="chart__line-chart"
+          data={{
+          // x-axis label values
+          labels: aPlot[0],
+          datasets: [
+            {
+                label: "Value",
+                // y-axis data plotting values
+                data: aPlot[1],
+                fill: false,
+                borderWidth: 2,
+                backgroundColor: "#f8b500",
+                borderColor: '#000',
+                responsive: true,
+                yAxisID: "y-axis-0"
+              },
+            ],
+          }}
+        />
+        <div className="chart__axis-title x_axis">t</div>
+      </div>
+      <div className="chart__wrapper">
+        <div className="chart__axis-title y_axis">V</div>
+        <Line
+          className="chart__line-chart"
+          data={{
+          // x-axis label values
+          labels: sPlot[0],
+          datasets: [
+            {
+                label: "Value",
+                // y-axis data plotting values
+                data: sPlot[1],
+                fill: false,
+                borderWidth: 2,
+                backgroundColor: "#f8b500",
+                borderColor: '#000',
+                responsive: true
+              },
+            ],
+          }}
+        />
+        <div className="chart__axis-title x_axis">t</div>
+      </div>
+      <div className="chart__wrapper">
+        <div className="chart__axis-title y_axis">V</div>
+        <Line
+          className="chart__line-chart"
+          data={{
+          // x-axis label values
+          labels: vPlot[0],
+          datasets: [
+            {
+                label: "Value",
+                // y-axis data plotting values
+                data: vPlot[1],
+                fill: false,
+                borderWidth: 2,
+                backgroundColor: "#f8b500",
+                borderColor: '#000',
+                responsive: true
+              },
+            ],
+          }}
+        />  
+        <div className="chart__axis-title x_axis">t</div>
+      </div>
     </div>
   );
 };
