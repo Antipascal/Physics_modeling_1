@@ -3,10 +3,11 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"math"
 	"strconv"
 )
 
-const dt = 60
+const dt = 10
 
 // For convertion to json.Number format
 func toJsonNumber(f float64) json.Number {
@@ -45,10 +46,10 @@ func calculate(rb *RequestBody) (ResponseBody, error) {
 		dm := (fFunc.cordinates[t] + fFunc.cordinates[t-dt]) * (dt / 2)
 		m_f -= dm
 		uFunc.newVal(t)
-		result.A[toJsonNumber(t)] = toJsonNumber((dm * uFunc.cordinates[t]) / (dt * (m_r + m_f)))
+		result.A[toJsonNumber(t)] = toJsonNumber(math.Abs((dm * uFunc.cordinates[t]) / (dt * (m_r + m_f))))
 
 		v += uFunc.cordinates[t] * dt
-		result.V[toJsonNumber(t)] = toJsonNumber(s)
+		result.V[toJsonNumber(t)] = toJsonNumber(v)
 
 		s += v * dt
 		result.S[toJsonNumber(t)] = toJsonNumber(s)
