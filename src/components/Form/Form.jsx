@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Form = ({ handleChangeData }) => {
-    const url = "http://localhost:8080/calculate";
+    const url = "http://193.42.113.29/calculate";
     const [rocketMass, setRocketMass] = useState('');
     const [fuelMass, setFuelMass] = useState('');
     const [uFunction, setUFunction] = useState('');
