@@ -61,8 +61,7 @@ html, body {
 }
 
 .chart__wrapper {
-    margin-bottom: 700px;
-    height: 200px;
+    margin-bottom: 2rem;
 }
 
 .chart__axis-title {
@@ -138,5 +137,17 @@ html, body {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        width: 60%
+    }
+}
+
+@media (max-width: 450px) {
+    .form {
+        width: 80%;
     }
 }
